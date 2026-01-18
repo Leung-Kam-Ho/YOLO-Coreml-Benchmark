@@ -1,0 +1,26 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+
+# Mac files
+.DS_Store
+
+# checkpoint files
+*.pt
+
+# uv lock
+*.uvlock
+
+# media files
+*.jpg
+
+# coreml model files
+*.mlpackage
