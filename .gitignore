@@ -17,7 +17,7 @@ wheels/
 *.pt
 
 # uv lock
-*.uvlock
+uv.lock
 
 # media files
 *.jpg
