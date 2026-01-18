@@ -12,10 +12,10 @@ for size in ["n", "s", "m", "l", "x"]:
     coreml_model_path = Path(f"yolo26{size}.mlpackage")
     if not coreml_model_path.exists():
         model.export(format="coreml")  # creates 'yolo26{size}.mlpackage'
-    coreml_model = YOLO(coreml_model_path, task='detect')
     # Load the YOLO26 model
     # First inference to warm up
     model(image_url)
+    model.info()
 
     # Export the model to CoreML format
     # Load the exported CoreML model
@@ -31,6 +31,7 @@ for size in ["n", "s", "m", "l", "x"]:
     del model  # free up memory for fair benchmarking
 
     # First inference to warm up
+    coreml_model = YOLO(coreml_model_path, task='detect')
     coreml_model(image_url)
     coreml_model_st = time()
     for _ in range(10):  # Warm-up runs
@@ -60,7 +61,7 @@ plt.title('Inference Time Comparison between Original and CoreML Models')
 plt.xticks([i + 0.2 for i in x], sizes)
 plt.legend()
 plt.savefig("benchmark_results.png")
-plt.show()
+# plt.show()
 
 # save benchmark results to a text file
 with open("benchmark_results.txt", "w") as f:
