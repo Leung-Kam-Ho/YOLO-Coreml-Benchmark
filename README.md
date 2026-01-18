@@ -10,7 +10,7 @@ The benchmark compares inference times between original PyTorch YOLO models and 
 
 ### Apple M1 MacBook Air (8GB RAM)
 
-![Benchmark Results](benchmark_results_m1.png)
+![Benchmark Results](results/benchmark_results_m1.png)
 
 #### Performance Data
 
@@ -29,7 +29,7 @@ The benchmark compares inference times between original PyTorch YOLO models and 
 
 ### Apple M3 Ultra
 
-![Benchmark Results](benchmark_results_m3_ultra.png)
+![Benchmark Results](results/benchmark_results_m3_ultra.png)
 
 #### Performance Data
 
