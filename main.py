@@ -15,7 +15,6 @@ for size in ["n", "s", "m", "l", "x"]:
     # Load the YOLO26 model
     # First inference to warm up
     model(image_url)
-    model.info()
 
     # Export the model to CoreML format
     # Load the exported CoreML model
