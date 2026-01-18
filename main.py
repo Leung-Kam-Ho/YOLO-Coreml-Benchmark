@@ -6,16 +6,16 @@ import matplotlib.pyplot as plt
 benchmark = {}
 for size in ["n", "s", "m", "l", "x"]:
     pt_path = Path(f"yolo26{size}.pt")
+    model = YOLO(pt_path)
     coreml_model_path = Path(f"yolo26{size}.mlpackage")
+    if not coreml_model_path.exists():
+        model.export(format="coreml")  # creates 'yolo26{size}.mlpackage'
     coreml_model = YOLO(coreml_model_path, task='detect')
     # Load the YOLO26 model
-    model = YOLO(pt_path)
     # First inference to warm up
     model("bus.jpg")
 
     # Export the model to CoreML format
-    if not coreml_model_path.exists():
-        model.export(format="coreml")  # creates 'yolo26{size}.mlpackage'
     # Load the exported CoreML model
 
     original_model_st = time()
