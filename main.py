@@ -21,7 +21,7 @@ for size in ["n", "s", "m", "l", "x"]:
     original_model_st = time()
     for _ in range(10):  # Warm-up runs
         # Run inference
-        results_origin = model("bus.jpg")
+        results_origin = model("https://ultralytics.com/images/bus.jpg")
     original_model_et = time()
     avg_time_original = (original_model_et - original_model_st) / 10
     print(f"Average inference time for original model yolo26{size}: {avg_time_original:.2f} seconds")
@@ -32,7 +32,7 @@ for size in ["n", "s", "m", "l", "x"]:
     coreml_model("bus.jpg")
     coreml_model_st = time()
     for _ in range(10):  # Warm-up runs
-        results = coreml_model("bus.jpg")
+        results = coreml_model("https://ultralytics.com/images/bus.jpg")
     coreml_model_et = time()
     avg_time_coreml = (coreml_model_et - coreml_model_st) / 10
     print(f"Average inference time for CoreML model yolo26{size}: {avg_time_coreml:.2f} seconds")
