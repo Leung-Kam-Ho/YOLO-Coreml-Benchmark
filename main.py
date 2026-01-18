@@ -57,4 +57,14 @@ plt.ylabel('Inference Time (seconds)')
 plt.title('Inference Time Comparison between Original and CoreML Models')
 plt.xticks([i + 0.2 for i in x], sizes)
 plt.legend()
+plt.savefig("benchmark_results.png")
 plt.show()
+
+# save benchmark results to a text file
+with open("benchmark_results.txt", "w") as f:
+    for size in benchmark:
+        f.write(f"Model Size: {size}\n")
+        f.write(f"Original Inference Time: {benchmark[size]['original_inference_time']:.4f} seconds\n")
+        f.write(f"CoreML Inference Time: {benchmark[size]['coreml_inference_time']:.4f} seconds\n\n")
+    print("Benchmark results saved to benchmark_results.txt")
+    del results  # free up memory for next iteration
