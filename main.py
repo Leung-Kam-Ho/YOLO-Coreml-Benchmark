@@ -15,7 +15,9 @@ for size in ["n", "s", "m", "l", "x"]:
         model.export(format="coreml")  # creates 'yolo26{size}.mlpackage'
     # Load the YOLO26 model
     # First inference to warm up
-    model(image_url)
+    warm_up_result = model(image_url)
+    # save the warm-up result to verify correctness later
+    warm_up_result[0].save(f"warmup_yolo26{size}_result.jpg")
 
     # Export the model to CoreML format
     # Load the exported CoreML model
@@ -32,7 +34,8 @@ for size in ["n", "s", "m", "l", "x"]:
 
     # First inference to warm up
     coreml_model = YOLO(coreml_model_path, task='detect')
-    coreml_model(image_url)
+    warm_up_result = coreml_model(image_url)
+    warm_up_result[0].save(f"warmup_coreml_yolo26{size}_result.jpg")
     coreml_model_st = time()
     for _ in range(10):  # Warm-up runs
         results = coreml_model(image_url)
