@@ -8,8 +8,8 @@ for size in ["n", "s", "m", "l", "x"]:
     pt_path = Path(f"yolo26{size}.pt")
     model = YOLO(pt_path)
     
-    # image_url = "https://ultralytics.com/images/bus.jpg"
-    image_url = "people.jpg"
+    image_url = "https://ultralytics.com/images/bus.jpg"
+    # image_url = "people.jpg"
     coreml_model_path = Path(f"yolo26{size}.mlpackage")
     if not coreml_model_path.exists():
         model.export(format="coreml")  # creates 'yolo26{size}.mlpackage'
