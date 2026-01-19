@@ -28,5 +28,6 @@ uv.lock
 *.png
 *.txt
 
-!results/*.txt
-!results/*.png
+# only png and txt with name benchmark in it
+*benchmark*.png
+*benchmark*.txt

@@ -27,7 +27,7 @@ The benchmark compares inference times between original PyTorch YOLO models and 
 - **Best performance**: X-large model shows 8.73x improvement
 - **Consistent gains**: All model sizes show significant performance improvements
 
-### Apple M3 Ultra
+### Apple M3 Ultra Mac Studio (96GB RAM)
 
 ![Benchmark Results](results/benchmark_results_m3_ultra.png)
 
@@ -46,22 +46,43 @@ The benchmark compares inference times between original PyTorch YOLO models and 
 - **Best performance**: Large model shows 3.86x improvement
 - **Raw performance**: M3 Ultra is significantly faster overall, with even the slowest CoreML inference (0.033s) being faster than the fastest M1 CoreML inference (0.0162s for nano model)
 
+### Apple M4 Mac Mini (16GB RAM)
+
+![Benchmark Results](results/benchmark_results_m4.png)
+
+#### Performance Data
+
+| Model Size | Original (s) | CoreML (s) | Speed Improvement |
+|------------|--------------|------------|-------------------|
+| n (nano)   | 0.0305       | 0.0112     | 2.72x faster      |
+| s (small)  | 0.0522       | 0.0142     | 3.68x faster      |
+| m (medium) | 0.1092       | 0.0196     | 5.57x faster      |
+| l (large)  | 0.1432       | 0.0213     | 6.72x faster      |
+| x (xlarge) | 0.2316       | 0.0322     | 7.19x faster      |
+
+**M4 Key Findings:**
+- **Average speed improvement**: 5.18x faster inference with CoreML
+- **Best performance**: X-large model shows 7.19x improvement
+- **Consistent gains**: All model sizes show significant performance improvements
+- **Balanced performance**: M4 combines good raw performance with strong relative improvements
+
 ### Cross-Generation Comparison
 
-| Metric | M1 | M3 Ultra | Improvement |
-|--------|----|----------|-------------|
-| Fastest CoreML inference | 0.0162s (n) | 0.0118s (n) | 1.37x faster |
-| Slowest CoreML inference | 0.0468s (x) | 0.0330s (x) | 1.42x faster |
-| Average speed improvement | 5.9x | 3.18x | - |
-| Raw performance gain | baseline | ~1.5-2x faster overall |
+| Metric | M1 | M3 Ultra | M4 | Best Performance |
+|--------|----|----------|----|------------------|
+| Fastest CoreML inference | 0.0162s (n) | 0.0118s (n) | 0.0112s (n) | M4 |
+| Slowest CoreML inference | 0.0468s (x) | 0.0330s (x) | 0.0322s (x) | M4 |
+| Average speed improvement | 5.9x | 3.18x | 5.18x | M1 |
+| Raw performance gain | baseline | ~1.4x faster | ~1.45x faster vs M1 | M4 |
 
 ## Key Findings
 
-- **Significant performance gains**: Both M1 and M3 Ultra show substantial improvements with CoreML
-- **M3 Ultra raw performance**: ~1.4x faster than M1 across all models, despite lower relative speedup percentages
-- **Consistent gains**: All model sizes show significant performance improvements on both platforms
-- **Efficiency scaling**: M1 shows higher relative improvements due to baseline performance being slower
-- **Real-world impact**: M3 Ultra can run inference in as little as 0.0118s (nano model) to 0.0330s (xlarge model)
+- **Significant performance gains**: All three generations (M1, M3 Ultra, M4) show substantial improvements with CoreML
+- **M4 raw performance**: Fastest overall, with best times across all model sizes
+- **M1 efficiency**: Highest relative speed improvements (5.9x average) due to slower baseline performance
+- **M3 Ultra consistency**: Strong raw performance with moderate relative improvements (3.18x average)
+- **M4 balance**: Excellent combination of raw speed and relative improvements (5.18x average)
+- **Real-world impact**: M4 can run inference in as little as 0.0112s (nano) to 0.0322s (xlarge)
 
 ## Usage
 
