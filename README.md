@@ -6,6 +6,8 @@ This project benchmarks the performance improvements of YOLO models when convert
 - Raw Yolo.pt models are used without any quantization or pruning. Should be FP32.
 - CoreML models are converted using default settings without additional optimizations. Should be FP16 by default.
 
+But even with half precision, CoreML shows significant speed improvements and very similar accuracy.
+
 ## Overview
 
 The benchmark compares inference times between original PyTorch YOLO models and their CoreML counterparts across different model sizes (nano, small, medium, large, extra-large).
