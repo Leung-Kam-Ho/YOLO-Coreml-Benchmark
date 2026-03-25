@@ -1,0 +1,20 @@
+Model Size: n
+Original Inference Time: 0.0239 seconds
+CoreML Inference Time: 0.0081 seconds
+
+Model Size: s
+Original Inference Time: 0.0404 seconds
+CoreML Inference Time: 0.0098 seconds
+
+Model Size: m
+Original Inference Time: 0.0791 seconds
+CoreML Inference Time: 0.0153 seconds
+
+Model Size: l
+Original Inference Time: 0.1008 seconds
+CoreML Inference Time: 0.0167 seconds
+
+Model Size: x
+Original Inference Time: 0.1812 seconds
+CoreML Inference Time: 0.0285 seconds
+
