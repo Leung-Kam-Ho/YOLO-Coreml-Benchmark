@@ -81,7 +81,26 @@ The benchmark compares inference times between original PyTorch YOLO models and 
 | Average speed improvement | 5.9x | 3.18x | 5.18x | M1 |
 | Raw performance gain | baseline | ~1.4x faster | ~1.45x faster vs M1 | M4 |
 
-## Key Findings
+### Apple M5 MacBook Air (16GB RAM)
+
+![Benchmark Results](results/benchmark_results_m5.png)
+
+#### Performance Data
+
+| Model Size | Original (s) | CoreML (s) | Speed Improvement |
+|------------|--------------|------------|-------------------|
+| n (nano)   | 0.0239       | 0.0081     | 2.95x faster      |
+| s (small)  | 0.0404       | 0.0098     | 4.12x faster      |
+| m (medium) | 0.0791       | 0.0153     | 5.17x faster      |
+| l (large)  | 0.1008       | 0.0167     | 6.04x faster      |
+| x (xlarge) | 0.1812       | 0.0285     | 6.36x faster      |
+
+**M5 Key Findings:**
+- **Average speed improvement**: 4.93x faster inference with CoreML
+- **Best performance**: X-large model shows 6.36x improvement
+- **Strong efficiency**: Similar performance profile to M4 with excellent CoreML optimization
+
+### Cross-Generation Comparison
 
 - **Significant performance gains**: All three generations (M1, M3 Ultra, M4) show substantial improvements with CoreML
 - **M4 raw performance**: Fastest overall, with best times across all model sizes
